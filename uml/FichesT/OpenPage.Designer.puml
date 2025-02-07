@@ -1,0 +1,6 @@
+@startuml
+class OpenPage <<partial>> {
+    # <<override>> Dispose(disposing:bool) : void
+    - InitializeComponent() : void
+}
+@enduml

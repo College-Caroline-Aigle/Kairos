@@ -1,0 +1,16 @@
+@startuml
+class Niveau {
+    + nomDuNiveau : string <<get>> <<set>>
+    + Niveau()
+    + Niveau(desClasses:List<Classe>)
+    + Niveau(nomDuNiveau:string)
+    + Niveau(nomDuNiveau:string, desClasses:List<Classe>)
+    + setListClasse(uneListClasse:List<Classe>) : void
+    + setLesClasses(uneClasse:Classe) : void
+    + getLesClasse() : List<Classe>
+    + getClasse(unNomClasse:string, desClasses:List<Classe>) : Classe
+}
+class "List`1"<T> {
+}
+Niveau --> "lesClasses<Classe>" "List`1"
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+class OpenPage <<partial>> {
+    + OpenPage()
+    - btnOpen_Click(sender:object, e:EventArgs) : void
+    - btnCancel1_Click(sender:object, e:EventArgs) : void
+    - openFileDialog1_FileOk(sender:object, e:CancelEventArgs) : void
+    - OpenPage_Load(sender:object, e:EventArgs) : void
+    - lblText1_Click(sender:object, e:EventArgs) : void
+    - groupBox1_Enter(sender:object, e:EventArgs) : void
+}
+Form <|-- OpenPage
+@enduml

@@ -1,0 +1,9 @@
+@startuml
+class OuvertureFichierGenererParNous <<partial>> {
+    + OuvertureFichierGenererParNous()
+    - btnOuvrirFIchierCsv_Click(sender:object, e:EventArgs) : void
+    - btnAnnulerOuvertureCsv_Click(sender:object, e:EventArgs) : void
+    - OuvertureFichierGenererParNous_Load(sender:object, e:EventArgs) : void
+}
+Form <|-- OuvertureFichierGenererParNous
+@enduml

@@ -1,0 +1,6 @@
+@startuml
+class Settings <<sealed>> <<partial>> {
+}
+Settings o-> "defaultInstance" Settings
+Settings --> "Default" Settings
+@enduml

@@ -1,0 +1,272 @@
+@startuml
+class AjoutEleve <<partial>> {
+    - selecClasse : string
+    - selecNom : string
+    - selecPrenom : string
+    - selecSexe : string
+    - selecNaissance : string
+    - selecMef : string
+    - selecOpt1 : string
+    - selecOpt2 : string
+    + AjoutEleve()
+    - AjoutEleve_Load(sender:object, e:EventArgs) : void
+    - btnValider_Click(sender:object, e:EventArgs) : void
+    - btnAnnuler_Click(sender:object, e:EventArgs) : void
+}
+Form <|-- AjoutEleve
+class AjoutEleve <<partial>> {
+    # <<override>> Dispose(disposing:bool) : void
+    - InitializeComponent() : void
+}
+class AjoutProfPrinc <<partial>> {
+    + AjoutProfPrinc()
+    - btnOuvrirFIchierCsv_Click(sender:object, e:EventArgs) : void
+    - btnAnnulerOuvertureCsv_Click(sender:object, e:EventArgs) : void
+    - AjoutProfPrinc_Load(sender:object, e:EventArgs) : void
+}
+Form <|-- AjoutProfPrinc
+class AjoutProfPrinc <<partial>> {
+    # <<override>> Dispose(disposing:bool) : void
+    - InitializeComponent() : void
+}
+class AvertissementNewYear <<partial>> {
+    + AvertissementNewYear()
+    - btnContinuer_Click(sender:object, e:EventArgs) : void
+    - btnAnnuler_Click(sender:object, e:EventArgs) : void
+}
+Form <|-- AvertissementNewYear
+class AvertissementNewYear <<partial>> {
+    # <<override>> Dispose(disposing:bool) : void
+    - InitializeComponent() : void
+}
+class ChangementClasseEleve <<partial>> {
+    + ChangementClasseEleve()
+    - ChangementClasseEleve_Load(sender:object, e:EventArgs) : void
+    - cbbClasse_SelectionChangeCommitted(sender:object, e:EventArgs) : void
+    - btnValider_Click(sender:object, e:EventArgs) : void
+    - btnAnnuler_Click(sender:object, e:EventArgs) : void
+}
+Form <|-- ChangementClasseEleve
+class ChangementClasseEleve <<partial>> {
+    # <<override>> Dispose(disposing:bool) : void
+    - InitializeComponent() : void
+}
+class Classe {
+    + nomDeLaClasse : string <<get>> <<set>>
+    + nomProfPrinc : string <<get>> <<set>>
+    + Classe()
+    + Classe(nomDeLaClasse:string)
+    + Classe(nomDeLaClasse:string, nomProfPrinc:string)
+    + Classe(nomDeLaClasse:string, nomProfPrinc:string, desEleves:List<Eleve>)
+    + setNomProfPrinc(nomDuProfPrinc:string) : void
+    + setListEleve(uneListEleve:List<Eleve>) : void
+    + setLesEleves(unEleve:Eleve) : void
+    + getLesEleves() : List<Eleve>
+    + getEleve(unNomEleve:string, unPrenomEleve:string, desEleves:List<Eleve>) : Eleve
+}
+class "List`1"<T> {
+}
+Classe --> "lesEleves<Eleve>" "List`1"
+class Eleve {
+    + numEleve : int <<get>> <<set>>
+    + nomEleve : string <<get>> <<set>>
+    + prenomEleve : string <<get>> <<set>>
+    + naissanceEleve : string <<get>> <<set>>
+    + sexeEleve : string <<get>> <<set>>
+    + mefEleve : string <<get>> <<set>>
+    + classeEleve : string <<get>> <<set>>
+    + option1Eleve : string <<get>> <<set>>
+    + option2Eleve : string <<get>> <<set>>
+    + Eleve()
+    + Eleve(numEleve:int, nomEleve:string, prenomEleve:string, naissanceEleve:string, sexeEleve:string, mefEleve:string, option1Eleve:string, option2Eleve:string)
+    + Eleve(numEleve:int, nomEleve:string, prenomEleve:string, naissanceEleve:string, sexeEleve:string, mefEleve:string, classeEleve:string, option1Eleve:string, option2Eleve:string)
+    + couleurOption1() : Color
+    + couleurOption2() : Color
+}
+Eleve --> "couleurOpt1" Color
+Eleve --> "couleurOpt2" Color
+Eleve --> "rdbNiveau" RadioButton
+class Global <<static>> {
+    + {static} pathXML : string
+    + {static} pathXLS : string
+    + {static} pathXLSX : string
+    + {static} pathXML6eme : string
+    + {static} pathXLS6eme : string
+    + {static} pathXLSX6eme : string
+    + {static} nbEleves : int = 0
+    + {static} nbEleves6eme : int = 0
+    + {static} nbCodesMEF : int = 0
+    + {static} anneeScolaire : int = 0
+    + {static} nbElevesReal : int = 0
+    + {static} nbElevesReal6eme : int = 0
+    + {static} rang : int
+    + {static} LeCompteur : int
+    + {static} avancement : int
+}
+class "List`1"<T> {
+}
+Global o-> "listeNomEtPrenomProf<string>" "List`1"
+Global o-> "lesNiveaux<Niveau>" "List`1"
+Global o-> "elevesValides<Eleve>" "List`1"
+Global o-> "elevesValides6eme<Eleve>" "List`1"
+Global o-> "listeNumEleve<int>" "List`1"
+Global o-> "listeNomEleve<string>" "List`1"
+Global o-> "listePrenomEleve<string>" "List`1"
+Global o-> "listeNaissanceEleve<string>" "List`1"
+Global o-> "listeSexeEleve<string>" "List`1"
+Global o-> "listeMefEleve<string>" "List`1"
+Global o-> "listeClasseEleve<string>" "List`1"
+Global o-> "listeOption1Eleve<string>" "List`1"
+Global o-> "listeOption2Eleve<string>" "List`1"
+Global o-> "nomsClasses6e<string>" "List`1"
+Global o-> "nomsClasses5e<string>" "List`1"
+Global o-> "nomsClasses4e<string>" "List`1"
+Global o-> "nomsClasses3e<string>" "List`1"
+Global o-> "ElevesAll<Eleve>" "List`1"
+class InterfacePrinc <<partial>> {
+    - MenuFichiers : bool = true
+    - MenuNiveaux : bool = true
+    - MenuEleve : bool = true
+    - MenuClasse : bool = true
+    + InterfacePrinc()
+    - btnOpenBase_Click(sender:object, e:EventArgs) : void
+    - btnFiles_Click(sender:object, e:EventArgs) : void
+    - FichierTimer_Tick(sender:object, e:EventArgs) : void
+    - btnNiveaux_Click(sender:object, e:EventArgs) : void
+    - NiveauxTimer_Tick(sender:object, e:EventArgs) : void
+    - Btnélèves_Click(sender:object, e:EventArgs) : void
+    - EleveTimer_Tick(sender:object, e:EventArgs) : void
+    - btnClasse_Click(sender:object, e:EventArgs) : void
+    - ClasseTimer_Tick(sender:object, e:EventArgs) : void
+    - btn6ème_Click(sender:object, e:EventArgs) : void
+    - btn5ème_Click(sender:object, e:EventArgs) : void
+    - btn4ème_Click(sender:object, e:EventArgs) : void
+    - btn3ème_Click(sender:object, e:EventArgs) : void
+    - btnDeplaClasse_Click(sender:object, e:EventArgs) : void
+    - btnRenomClasse_Click(sender:object, e:EventArgs) : void
+    - btnAjoutFicheEleve_Click(sender:object, e:EventArgs) : void
+    - btnSuppEleve_Click(sender:object, e:EventArgs) : void
+    + repartitionEleves() : void
+    - layoutClasses6e_Paint(sender:object, e:PaintEventArgs) : void
+    - InterfacePrinc_Load(sender:object, e:EventArgs) : void
+    - sendButton_Click(sender:object, e:EventArgs) : void
+    - btnEnregistrer_Click(sender:object, e:EventArgs) : void
+    - btnQuitter_Click(sender:object, e:EventArgs) : void
+    - PanelClasse_DoubleClick(sender:object, e:EventArgs) : void
+    - PanelEleve_DoubleClick(sender:object, e:EventArgs) : void
+    - btnSupAffichage_Click(sender:object, e:EventArgs) : void
+    - btnResetTout_Click(sender:object, e:EventArgs) : void
+    - btnAjoutProf_Click(sender:object, e:EventArgs) : void
+    - btnExtraireDonneesEleves_Click(sender:object, e:EventArgs) : void
+    - btnNouvelleAnnee_Click(sender:object, e:EventArgs) : void
+    - btnSupAffichage_MouseHover(sender:object, e:EventArgs) : void
+    - btnResetTout_MouseHover(sender:object, e:EventArgs) : void
+    - btnOuvertureXmlGenererParAppli_Click(sender:object, e:EventArgs) : void
+}
+Form <|-- InterfacePrinc
+InterfacePrinc --> "flowLayoutPanelPrinc" FlowLayoutPanel
+InterfacePrinc o-> "tltInforBoutonSupAffichage" ToolTip
+InterfacePrinc o-> "tltInforBoutonSuppressionDonnees" ToolTip
+class InterfacePrinc <<partial>> {
+    # <<override>> Dispose(disposing:bool) : void
+    - InitializeComponent() : void
+}
+class Niveau {
+    + nomDuNiveau : string <<get>> <<set>>
+    + Niveau()
+    + Niveau(desClasses:List<Classe>)
+    + Niveau(nomDuNiveau:string)
+    + Niveau(nomDuNiveau:string, desClasses:List<Classe>)
+    + setListClasse(uneListClasse:List<Classe>) : void
+    + setLesClasses(uneClasse:Classe) : void
+    + getLesClasse() : List<Classe>
+    + getClasse(unNomClasse:string, desClasses:List<Classe>) : Classe
+}
+class "List`1"<T> {
+}
+Niveau --> "lesClasses<Classe>" "List`1"
+class NouvelleAnnee <<partial>> {
+    + NouvelleAnnee()
+    - NouvelleAnnee_Load(sender:object, e:EventArgs) : void
+    - btnSuivant_Click(sender:object, e:EventArgs) : void
+    - btnAnnuler_Click(sender:object, e:EventArgs) : void
+}
+Form <|-- NouvelleAnnee
+class NouvelleAnnee <<partial>> {
+    # <<override>> Dispose(disposing:bool) : void
+    - InitializeComponent() : void
+}
+class OpenNew6eme <<partial>> {
+    + OpenNew6eme()
+    - btnOpen_Click(sender:object, e:EventArgs) : void
+    - btnCancel1_Click(sender:object, e:EventArgs) : void
+}
+Form <|-- OpenNew6eme
+class OpenNew6eme <<partial>> {
+    # <<override>> Dispose(disposing:bool) : void
+    - InitializeComponent() : void
+}
+class OpenPage <<partial>> {
+    + OpenPage()
+    - btnOpen_Click(sender:object, e:EventArgs) : void
+    - btnCancel1_Click(sender:object, e:EventArgs) : void
+    - openFileDialog1_FileOk(sender:object, e:CancelEventArgs) : void
+    - OpenPage_Load(sender:object, e:EventArgs) : void
+    - lblText1_Click(sender:object, e:EventArgs) : void
+    - groupBox1_Enter(sender:object, e:EventArgs) : void
+}
+Form <|-- OpenPage
+class OpenPage <<partial>> {
+    # <<override>> Dispose(disposing:bool) : void
+    - InitializeComponent() : void
+}
+class OuvertureFichierGenererParNous <<partial>> {
+    + OuvertureFichierGenererParNous()
+    - btnOuvrirFIchierCsv_Click(sender:object, e:EventArgs) : void
+    - btnAnnulerOuvertureCsv_Click(sender:object, e:EventArgs) : void
+    - OuvertureFichierGenererParNous_Load(sender:object, e:EventArgs) : void
+}
+Form <|-- OuvertureFichierGenererParNous
+class OuvertureFichierGenererParNous <<partial>> {
+    # <<override>> Dispose(disposing:bool) : void
+    - InitializeComponent() : void
+}
+class Program <<static>> {
+    {static} Main() : void
+}
+class RenommerClasse <<partial>> {
+    + RenommerClasse()
+    - RenommerClasse_Load(sender:object, e:EventArgs) : void
+    - cmbClasse_SelectedIndexChanged(sender:object, e:EventArgs) : void
+    - tbxNouveaNomClasse_TextChanged(sender:object, e:EventArgs) : void
+    - btnValider_Click(sender:object, e:EventArgs) : void
+    - btnAnnuler_Click(sender:object, e:EventArgs) : void
+}
+class "List`1"<T> {
+}
+Form <|-- RenommerClasse
+RenommerClasse o-> "listeDesClasses<Classe>" "List`1"
+class RenommerClasse <<partial>> {
+    # <<override>> Dispose(disposing:bool) : void
+    - InitializeComponent() : void
+}
+class SuppEleve <<partial>> {
+    + SuppEleve()
+    - SuppEleve_Load(sender:object, e:EventArgs) : void
+    - cbbClasse_SelectionChangeCommitted(sender:object, e:EventArgs) : void
+    - btnSupprimer_Click(sender:object, e:EventArgs) : void
+    - btnAnnuler_Click(sender:object, e:EventArgs) : void
+}
+Form <|-- SuppEleve
+class SuppEleve <<partial>> {
+    # <<override>> Dispose(disposing:bool) : void
+    - InitializeComponent() : void
+}
+class Resources {
+    <<internal>> Resources()
+}
+class Settings <<sealed>> <<partial>> {
+}
+Settings o-> "defaultInstance" Settings
+Settings --> "Default" Settings
+@enduml

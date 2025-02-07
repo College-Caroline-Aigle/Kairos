@@ -1,0 +1,21 @@
+@startuml
+class Eleve {
+    + numEleve : int <<get>> <<set>>
+    + nomEleve : string <<get>> <<set>>
+    + prenomEleve : string <<get>> <<set>>
+    + naissanceEleve : string <<get>> <<set>>
+    + sexeEleve : string <<get>> <<set>>
+    + mefEleve : string <<get>> <<set>>
+    + classeEleve : string <<get>> <<set>>
+    + option1Eleve : string <<get>> <<set>>
+    + option2Eleve : string <<get>> <<set>>
+    + Eleve()
+    + Eleve(numEleve:int, nomEleve:string, prenomEleve:string, naissanceEleve:string, sexeEleve:string, mefEleve:string, option1Eleve:string, option2Eleve:string)
+    + Eleve(numEleve:int, nomEleve:string, prenomEleve:string, naissanceEleve:string, sexeEleve:string, mefEleve:string, classeEleve:string, option1Eleve:string, option2Eleve:string)
+    + couleurOption1() : Color
+    + couleurOption2() : Color
+}
+Eleve --> "couleurOpt1" Color
+Eleve --> "couleurOpt2" Color
+Eleve --> "rdbNiveau" RadioButton
+@enduml

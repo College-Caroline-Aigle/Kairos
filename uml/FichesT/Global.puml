@@ -1,0 +1,39 @@
+@startuml
+class Global <<static>> {
+    + {static} pathXML : string
+    + {static} pathXLS : string
+    + {static} pathXLSX : string
+    + {static} pathXML6eme : string
+    + {static} pathXLS6eme : string
+    + {static} pathXLSX6eme : string
+    + {static} nbEleves : int = 0
+    + {static} nbEleves6eme : int = 0
+    + {static} nbCodesMEF : int = 0
+    + {static} anneeScolaire : int = 0
+    + {static} nbElevesReal : int = 0
+    + {static} nbElevesReal6eme : int = 0
+    + {static} rang : int
+    + {static} LeCompteur : int
+    + {static} avancement : int
+}
+class "List`1"<T> {
+}
+Global o-> "listeNomEtPrenomProf<string>" "List`1"
+Global o-> "lesNiveaux<Niveau>" "List`1"
+Global o-> "elevesValides<Eleve>" "List`1"
+Global o-> "elevesValides6eme<Eleve>" "List`1"
+Global o-> "listeNumEleve<int>" "List`1"
+Global o-> "listeNomEleve<string>" "List`1"
+Global o-> "listePrenomEleve<string>" "List`1"
+Global o-> "listeNaissanceEleve<string>" "List`1"
+Global o-> "listeSexeEleve<string>" "List`1"
+Global o-> "listeMefEleve<string>" "List`1"
+Global o-> "listeClasseEleve<string>" "List`1"
+Global o-> "listeOption1Eleve<string>" "List`1"
+Global o-> "listeOption2Eleve<string>" "List`1"
+Global o-> "nomsClasses6e<string>" "List`1"
+Global o-> "nomsClasses5e<string>" "List`1"
+Global o-> "nomsClasses4e<string>" "List`1"
+Global o-> "nomsClasses3e<string>" "List`1"
+Global o-> "ElevesAll<Eleve>" "List`1"
+@enduml

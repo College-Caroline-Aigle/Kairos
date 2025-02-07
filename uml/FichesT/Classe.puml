@@ -1,0 +1,18 @@
+@startuml
+class Classe {
+    + nomDeLaClasse : string <<get>> <<set>>
+    + nomProfPrinc : string <<get>> <<set>>
+    + Classe()
+    + Classe(nomDeLaClasse:string)
+    + Classe(nomDeLaClasse:string, nomProfPrinc:string)
+    + Classe(nomDeLaClasse:string, nomProfPrinc:string, desEleves:List<Eleve>)
+    + setNomProfPrinc(nomDuProfPrinc:string) : void
+    + setListEleve(uneListEleve:List<Eleve>) : void
+    + setLesEleves(unEleve:Eleve) : void
+    + getLesEleves() : List<Eleve>
+    + getEleve(unNomEleve:string, unPrenomEleve:string, desEleves:List<Eleve>) : Eleve
+}
+class "List`1"<T> {
+}
+Classe --> "lesEleves<Eleve>" "List`1"
+@enduml

@@ -1,0 +1,46 @@
+@startuml
+class InterfacePrinc <<partial>> {
+    - MenuFichiers : bool = true
+    - MenuNiveaux : bool = true
+    - MenuEleve : bool = true
+    - MenuClasse : bool = true
+    + InterfacePrinc()
+    - btnOpenBase_Click(sender:object, e:EventArgs) : void
+    - btnFiles_Click(sender:object, e:EventArgs) : void
+    - FichierTimer_Tick(sender:object, e:EventArgs) : void
+    - btnNiveaux_Click(sender:object, e:EventArgs) : void
+    - NiveauxTimer_Tick(sender:object, e:EventArgs) : void
+    - Btnélèves_Click(sender:object, e:EventArgs) : void
+    - EleveTimer_Tick(sender:object, e:EventArgs) : void
+    - btnClasse_Click(sender:object, e:EventArgs) : void
+    - ClasseTimer_Tick(sender:object, e:EventArgs) : void
+    - btn6ème_Click(sender:object, e:EventArgs) : void
+    - btn5ème_Click(sender:object, e:EventArgs) : void
+    - btn4ème_Click(sender:object, e:EventArgs) : void
+    - btn3ème_Click(sender:object, e:EventArgs) : void
+    - btnDeplaClasse_Click(sender:object, e:EventArgs) : void
+    - btnRenomClasse_Click(sender:object, e:EventArgs) : void
+    - btnAjoutFicheEleve_Click(sender:object, e:EventArgs) : void
+    - btnSuppEleve_Click(sender:object, e:EventArgs) : void
+    + repartitionEleves() : void
+    - layoutClasses6e_Paint(sender:object, e:PaintEventArgs) : void
+    - InterfacePrinc_Load(sender:object, e:EventArgs) : void
+    - sendButton_Click(sender:object, e:EventArgs) : void
+    - btnEnregistrer_Click(sender:object, e:EventArgs) : void
+    - btnQuitter_Click(sender:object, e:EventArgs) : void
+    - PanelClasse_DoubleClick(sender:object, e:EventArgs) : void
+    - PanelEleve_DoubleClick(sender:object, e:EventArgs) : void
+    - btnSupAffichage_Click(sender:object, e:EventArgs) : void
+    - btnResetTout_Click(sender:object, e:EventArgs) : void
+    - btnAjoutProf_Click(sender:object, e:EventArgs) : void
+    - btnExtraireDonneesEleves_Click(sender:object, e:EventArgs) : void
+    - btnNouvelleAnnee_Click(sender:object, e:EventArgs) : void
+    - btnSupAffichage_MouseHover(sender:object, e:EventArgs) : void
+    - btnResetTout_MouseHover(sender:object, e:EventArgs) : void
+    - btnOuvertureXmlGenererParAppli_Click(sender:object, e:EventArgs) : void
+}
+Form <|-- InterfacePrinc
+InterfacePrinc --> "flowLayoutPanelPrinc" FlowLayoutPanel
+InterfacePrinc o-> "tltInforBoutonSupAffichage" ToolTip
+InterfacePrinc o-> "tltInforBoutonSuppressionDonnees" ToolTip
+@enduml

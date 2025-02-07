@@ -1,0 +1,14 @@
+@startuml
+class RenommerClasse <<partial>> {
+    + RenommerClasse()
+    - RenommerClasse_Load(sender:object, e:EventArgs) : void
+    - cmbClasse_SelectedIndexChanged(sender:object, e:EventArgs) : void
+    - tbxNouveaNomClasse_TextChanged(sender:object, e:EventArgs) : void
+    - btnValider_Click(sender:object, e:EventArgs) : void
+    - btnAnnuler_Click(sender:object, e:EventArgs) : void
+}
+class "List`1"<T> {
+}
+Form <|-- RenommerClasse
+RenommerClasse o-> "listeDesClasses<Classe>" "List`1"
+@enduml
