@@ -6,27 +6,101 @@ Cette solution intuitive permet de visualiser, analyser et imprimer les fiches e
 
 ---
 
-## 🎯 Fonctionnalités principales
-### 📊 Gestion des fiches en T
-- Visualisation claire et intuitive des fiches
-- Impression personnalisable des fiches
-- Modification simple des informations élèves
+## 📌 Fonctionnalités
 
-### 📈 Analyses statistiques
-- Génération de courbes de Gauss par classe et niveau
-- Visualisation des statistiques de performance
-- Suivi de l'évolution des résultats
+### Gestion des élèves :
 
-### 👥 Gestion des élèves
-- Gestion des options (langues, spécialités...)
-- Modification des informations par lot
-- Interface de suppression sécurisée
-- Personnalisation des légendes et catégories
+   - Importation des élèves via un fichier EleveLegere.xls
+
+   - Affichage des élèves par niveau et classe
+
+   - Gestion des options avec des couleurs et une légende modifiable
+
+   - Attribution des notes moyennes via un système de lettres (A, B, C, D, E)
+
+   - Génération d'une courbe de Gauss pour évaluer le niveau de la classe ou de l'établissement
+
+### Gestion des classes et professeurs :
+
+   - Création, modification et suppression des fiches élèves
+
+   - Déplacement des élèves entre les classes
+
+   - Renommage des classes
+
+   - Attribution des professeurs principaux via un fichier CSV
+
+### Impression et exportation :
+
+   - Impression des données élèves en tableau
+
+   - Impression des Fiches en T sous deux formats :
+
+   - Colonne adaptée au format A3
+
+   - Bloc avec statistiques en format A4
+
+## 🛠️ Technologies utilisées
+
+   - Langage : C#
+
+   - Framework : .NET WinForms
+
+   - Dépendances : Microsoft Office Excel requis
+
+## 📥 Installation
+
+### Option 1 : Version installable (recommandée)
+
+   - Télécharger l'installateur Kairos.msi depuis le dépôt.
+
+   - Lancer l'installation et suivre les instructions.
+
+   - Exécuter l'application avec les droits administrateur.
+
+### Option 2 : Version portable
+
+   - Télécharger l'archive Kairos Portable.
+
+   - Extraire le contenu à l'emplacement souhaité.
+
+   - Lancer Kairos.exe en tant qu'administrateur.
+
+## 📌 Prérequis
+
+Windows
+
+Microsoft Office Excel (obligatoire)
+
+Droits administrateur pour exécuter l'application et sauvegarder les données
+
+## 📈 Utilisation
+
+Importer un fichier EleveLegere.xls pour afficher les élèves.
+
+Modifier les options des élèves, les classes et leurs professeurs.
+
+Attribuer des notes moyennes aux élèves.
+
+Générer une courbe de Gauss pour l'analyse du niveau.
+
+Imprimer les fiches élèves sous le format souhaité.
+
+## 👥 Contributeurs
+
+KALCK Damien
+
+BELLER Thierry
+
+ShaSaRen Hasan
+
+JoeyScheidt
+
+ValgulNecron
 
 ---
 
-## 💻 Guide d'installation
-Pour contribuer au projet, suivez ces étapes :
+## 💻 Pour contribuer au projet, suivez ces étapes :
 1. Prérequis :
    - Visual Studio 2019 ou version ultérieure
    - L'Extension "Microsoft Visual Studio Installer Projects" pour créer ou modifier l'installer
@@ -41,3 +115,7 @@ Toute contribution est la bienvenue !*
 ---
 ## 📝 Licence
 Ce projet est distribué sous licence MIT. Pour plus d'informations, consultez le fichier `LICENSE` inclus dans le dépôt.
+
+---
+
+# 🚀 Kairos, pour une gestion simplifiée et optimisée des élèves !
