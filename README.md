@@ -2,6 +2,8 @@
 Kairos est une application open source dédiée à la gestion et l'analyse des fiches de suivi des élèves en établissement scolaire.
 Cette solution intuitive permet de visualiser, analyser et imprimer les fiches en T tout en offrant des outils statistiques avancés.
 
+![Kairos](https://github.com/user-attachments/assets/ddde3b47-6aff-4ee0-8bf5-efeda71fc891)
+
 ---
 
 ## 🎯 Fonctionnalités principales
